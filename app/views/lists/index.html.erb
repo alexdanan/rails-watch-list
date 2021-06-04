@@ -1,12 +1,20 @@
 <h1>Lists</h1>
-<p>
-  <% @lists.each do |list| %>
-  <%= link_to list.name, list_path(list)  %>
-  </br>
-</p>
-  <% end %>
-</p>
-<%= cl_image_tag("https://res.cloudinary.com/sassia93/image/upload/v1622812141/1920px-Drama-icon.svg_kyejub.png",
-      width: 400, height: 300, crop: :fill) %>
+
+
+<% @lists.each do |list| %>
+  <div class="card-product">
+    <img src="<%= cl_image_path list.photo.key, height: 300, crop: :fill %>"/>
+    <div class="card-product-infos">
+      <%= link_to list.name, list_path(list)  %>
+      </br>
+      <%= link_to "Delete List", list_path(list), method: :delete  %>
+
+ </div>
+</div>
+<% end %>
+</br>
+
 
 <%= link_to "Create a new list", new_list_path  %>
+
+
